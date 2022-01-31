@@ -7,6 +7,7 @@ session_start();
 require_once('vendor/autoload.php');
 
 use Router\Router;
+
 $router = new Router($_GET['url']);
 
 if(!isset($_SESSION['Type'])) {
@@ -38,4 +39,5 @@ switch ($_SESSION['Type']) {
         break;
 }
 
-$router->run();
+$router->run(); ?>
+
