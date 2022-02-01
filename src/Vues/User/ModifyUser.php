@@ -27,7 +27,7 @@
     
 
     </div>
-    <form action='<?="/user/$sId"?>' method="POST" id="form_controller" style="height: 100vh;">
+    <form action='<?= "/user/$sId" ?>' method="POST" id="form_controller" style="height: 100vh;">
 
         <label for="name">NOM: </label>
         <input type="text" class="radius" name="name" id="name">

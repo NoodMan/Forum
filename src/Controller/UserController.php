@@ -37,7 +37,7 @@ final class UserController
         }
 
         include(__DIR__ . "/../Vues/User/AddUser.php");
-        die();
+       // die();
     }
 
 
@@ -45,9 +45,13 @@ final class UserController
     {
         $em = EntityManagerHelper::getEntityManager();
         $userRepository = new EntityRepository($em, new ClassMetadata("App\Entity\User"));
-
+        
         $user = $userRepository->find((int) $id);
-
+        
+        var_dump($userRepository);
+        die('-->Je suis ici<--');
+       
+        
         if (!empty($_POST)) {
             foreach (self::NEEDS as $value) {
                 $existe = array_key_exists($value, $_POST);
@@ -60,8 +64,6 @@ final class UserController
                 $_POST[$value] = trim(htmlentities(strip_tags($_POST[$value])));
             }
 
-            
-
         
             $user->setName($_POST["name"]);
             $user->setEmail($_POST["email"]);
@@ -69,6 +71,8 @@ final class UserController
 
             $entityManager->persist($user);
             $entityManager->flush();    
-        }}
         }
         include (__DIR__ . "/../Vues/User/ModifyUser.php");   
+    }
+    
+}      

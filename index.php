@@ -18,7 +18,7 @@ $router->get("/article", "App\Controller\ArticleController@add");
 $router->post("/article", "App\Controller\ArticleController@add");
 
 $router->get("/article/:id", "App\Controller\ArticleController@modify");
-$router->get("/article/:id", "App\Controller\ArticleController@modify");
+$router->post("/article/:id", "App\Controller\ArticleController@modify");
 
 $router->get("/user/:id", "App\Controller\UserController@modify");
 $router->post("/user/:id", "App\Controller\UserController@modify");

@@ -35,6 +35,8 @@
 
     <label for="comment">COMMENTAIRE: </label>
     <input type="text" name="comment" id="comment">
+    
+    &nbsp;
 
     <input type="submit" value="Noter">
 </form>

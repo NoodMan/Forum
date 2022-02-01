@@ -31,7 +31,7 @@ class Note
     */
     private Article $article;
 
-    public function __construct(string $comment, string $note, Article $article)
+    public function __construct(string $comment, int $note, Article $article)
     {
         $this->comment = $comment;
         $this->note = $note;

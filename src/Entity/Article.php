@@ -45,11 +45,8 @@ class Article
     */
     private User $editor;
 
-    /**
-     * @var Collection<Note>
-     * @ORM\OneToMany(targetEntity="Note", mappedBy="Note", orphanRemoval=true, cascade={"persist"})
-    */
-    private Collection $notes;
+
+
 
     public function __construct(string $title, string $summary, int $n_isbn, User $author, User $editor )
     {
@@ -58,7 +55,7 @@ class Article
         $this->n_isbn = $n_isbn;
         $this->author = $author;
         $this->editor = $editor;
-        $this->notes = new ArrayCollection();
+       
     }
    
 
@@ -210,27 +207,4 @@ class Article
         return $this;
     }
 
-    /**
-     * Get the value of notes
-     *
-     * @return Collection
-     */
-    public function getNotes(): Collection
-    {
-        return $this->notes;
-    }
-
-    /**
-     * Set the value of notes
-     *
-     * @param Collection $notes
-     *
-     * @return self
-     */
-    public function setNotes(Collection $notes): self
-    {
-        $this->notes = $notes;
-
-        return $this;
-    }
 }
