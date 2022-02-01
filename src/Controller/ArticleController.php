@@ -71,6 +71,8 @@ final class ArticleController
         $aUser = $userRepository->findAll();
 
         if (!empty($_POST)) {
+            var_dump($_POST);
+            die('-->Je suis ici<--');
             foreach (self::NEEDS as $value) {
                 if(!array_key_exists($value, $_POST)) {
                     $error = "Le champs $value n'a pas été remplit";

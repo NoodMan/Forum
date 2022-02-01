@@ -27,16 +27,16 @@
     
 
     </div>
-    <form action='<?= "/user/$sId" ?>' method="POST" id="form_controller" style="height: 100vh;">
+    <form action='<?= "/user/$id" ?>' method="POST" id="form_controller" style="height: 100vh;">
 
         <label for="name">NOM: </label>
-        <input type="text" class="radius" name="name" id="name">
+        <input type="text" class="radius" name="name" id="name" value="<?= $user->getName() ?>">
 
         <label for="email">EMAIL: </label>
-        <input type="text" class="radius" name="email" id="email">
+        <input type="text" class="radius" name="email" id="email" value="<?= $user->getEmail() ?>">
 
-        
-
+        &nbsp;
+    
         <input type="submit" class="radius" value="Modify data">
     </form>
     </body>

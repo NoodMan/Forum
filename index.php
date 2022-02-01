@@ -27,6 +27,9 @@ $router->post("/note/:id", "App\Controller\NoteController@add");
 
 $router->get("/deletearticle/:id", "App\Controller\ArticleController@delete");
 
+$router->get("/deleteuser/:id", "App\Controller\UserController@delete");
+
+
 $router->get("/", "App\Controller\LoginController@login"); //ne fonctionne pas probleme router ou eh!!
 
 

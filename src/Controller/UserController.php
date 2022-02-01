@@ -25,7 +25,7 @@ final class UserController
                     include_once(__DIR__ . "/../Vues/User/AddUser.php");
                     exit;
                 }
-                $_POST[$value] = htmlentities(strip_tags($_POST[$value]));
+                $_POST[$value] = trim(htmlentities(strip_tags($_POST[$value])));
             }
 
             $user = new User($_POST["name"], $_POST["email"]);
@@ -48,11 +48,9 @@ final class UserController
         
         $user = $userRepository->find((int) $id);
         
-        var_dump($userRepository);
-        die('-->Je suis ici<--');
-       
         
         if (!empty($_POST)) {
+           
             foreach (self::NEEDS as $value) {
                 $existe = array_key_exists($value, $_POST);
                 if ($existe === false) {
@@ -75,4 +73,16 @@ final class UserController
         include (__DIR__ . "/../Vues/User/ModifyUser.php");   
     }
     
-}      
+    public function delete(string $id)
+    { 
+            $em = EntityManagerHelper::getEntityManager();
+            $repository = new EntityRepository($em, new ClassMetadata("App\Entity\User"));
+
+            $user = $repository->find($id);
+
+            $em->remove($user);
+            $em->flush();
+
+            include (__DIR__ . "/../Vues/User/deleteuser.php"); // fonctionne grace a Amelie
+        }
+    }      
