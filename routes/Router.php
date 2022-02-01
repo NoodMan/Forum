@@ -31,18 +31,14 @@ class Router {
 
     public function run()
     { 
-        $routeFound = false;
 
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
             if($route->matches($this->url)) {
-                $routeFound = true;
+       
                 $route->execute();
             }
         }
 
-        if (!$routeFound) {
-            return (new AppController())->error404();
-        }
     }
 
     public static function redirect(string $url) {
